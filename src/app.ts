@@ -29,9 +29,9 @@ dotenv.config({ path: path.resolve(__dirname, '../.env')});
 //mogodb connection
 
 //setup routes
-app.use('/',userRoute)
-app.use('/admin',adminRout)
-app.use('/doctor',doctorRoute)
+app.use('/api',userRoute)
+app.use('/api/admin',adminRout)
+app.use('/api/doctor',doctorRoute)
 
 
 
