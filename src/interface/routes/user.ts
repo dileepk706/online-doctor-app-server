@@ -12,19 +12,17 @@ import { getUerPofile, updateUerPofile } from "../controller/user/userProfileCon
 import { getDepartmentByHealthProblem_Controller } from "../controller/admin/departmentController";
 import { getPrescriptionsForPatient_Controller } from "../controller/prescription/priscriptionContrller";
 
-
 const userRoute = express.Router()
 
 //uer auth
 userRoute.post('/signup', userSignup)
 userRoute.post('/login', userLogin)
 userRoute.post('/login-googleAuth', loginWithGoogle_Controller);
-
-userRoute.get('/getalldepartments', UserAuthenticateToken, getAllDepartments)
-userRoute.get('/healthProblems', getHealthProblems_Controller)
-userRoute.get('/get-department-by-healt',getDepartmentByHealthProblem_Controller)
-userRoute.get('/get-alldoctor-alldepartment-allhealth', getAllDoc_Dep_Health_Controller)
-userRoute.get('/get-all-doctors-by-heathIsue', getAllDoctorsByHealthIssue_Controler)
+userRoute.get('/getalldepartments', UserAuthenticateToken, getAllDepartments);
+userRoute.get('/healthProblems', getHealthProblems_Controller);
+userRoute.get('/get-department-by-healt',getDepartmentByHealthProblem_Controller);
+userRoute.get('/get-alldoctor-alldepartment-allhealth', getAllDoc_Dep_Health_Controller);
+userRoute.get('/get-all-doctors-by-heathIsue', getAllDoctorsByHealthIssue_Controler);
 userRoute.get('/all-doctor', getAllDoctorSearchFilterSortController);
 userRoute.get('/doctor-info/:id', getOneDoctorController);
 userRoute.get('/slots/:id', getSlotesController);
@@ -38,10 +36,6 @@ userRoute.put('/review-rating',UserAuthenticateToken,addReviewAndRatingControlle
 userRoute.put('/cancell-appointment',UserAuthenticateToken,cancellAppointment);
 userRoute.get('/doctors/consulted',UserAuthenticateToken,consultedDoctors_Controller);
 userRoute.get('/prescriptions',UserAuthenticateToken,getPrescriptionsForPatient_Controller);
-
-
-
-
 
 
 export default userRoute

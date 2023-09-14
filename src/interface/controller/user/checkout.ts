@@ -28,8 +28,8 @@ export const checkoutController=async (req:CustomRequest, res:Response) => {
         }
       ],
       mode: 'payment',
-      success_url: `${process.env.CLIENT_DOMIAN || ''}payment-success/${doctorId}/${slotId}/${price}`,
-      cancel_url: `${process.env.CLIENT_DOMIAN || ''}payment-canceled?status=true`,
+      success_url: `${process.env.CLIENT_DOMIAN || ''}/payment-success/${doctorId}/${slotId}/${price}`,
+      cancel_url: `${process.env.CLIENT_DOMIAN || ''}/payment-canceled?status=true`,
     });
   
     res.status(200).json({ url: session.url });
