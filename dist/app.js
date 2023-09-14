@@ -47,7 +47,7 @@ const server = app.listen(PORT, () => { console.log(`server is runnin on port ${
 const io = require('socket.io')(server, {
     pingTimeout: 60000,
     cors: {
-        origin: 'https://docktor-link-a0rh1q3h2-dileepk706.vercel.app'
+        origin: 'https://docktor-link.vercel.app'
         // http://localhost:3000
     }
 });
@@ -86,19 +86,3 @@ io.on("connection", (socket) => {
         io.to(to).emit("peer:nego:final", { from: socket.id, ans });
     });
 });
-// io.on("connection", (socket:Socket) => {
-// 	socket.emit("me", socket.id);
-//     console.log('connected socket',socket.id )
-// 	socket.on("disconnect", () => {
-// 		console.log('callEnded')
-// 		socket.broadcast.emit("callEnded")
-// 	})
-// 	socket.on("callUser", ({ userToCall, signalData, from, name }) => {
-// 		console.log('user called ')
-// 		io.to(userToCall).emit("callUser", { signal: signalData, from, name });
-// 	});
-// 	socket.on("answerCall", (data) => {
-// 		console.log('callAccepted')
-// 		io.to(data.to).emit("callAccepted", data.signal)
-// 	});
-// });
