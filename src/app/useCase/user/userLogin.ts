@@ -13,14 +13,14 @@ export const loginUser = (userRepository: UserRepository) => {
     return async (user: userLoginType): Promise<UserReturnType> => {
         const isUserExist: userLoginType | null = await userRepository.findOneUserByEmail(user.email)//check teh user is already exist 
         const isUerBlocked=await userRepository.isPateintBlocked(user.email)
-        if(isUerBlocked) throw new AppError('User is blocked by admin', 404)
+         if(isUerBlocked) throw new AppError('User is blocked by admin', 404)
         if (!isUserExist || !isUserExist.password) throw new AppError('User is not exist', 404)
         const UserToken = await userLoginUserValidate(user, isUserExist)//validate the user credentials 
         const verifiedUser:UserReturnType = {
             accessToken: UserToken,
             user:isUserExist,
             message: 'Login success',
-        }
+        } 
         return verifiedUser
     }
 }
